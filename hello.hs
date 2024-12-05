@@ -1,5 +1,4 @@
-wrapHtml content = "<html><body>" <> content <> "</body></html>"
+html_ content = "<html>" <> content <> "</html>"
+body_ content = "<body>" <> content <> "</body>"
 
-myhtml = wrapHtml "Hello, world!"
-
-main = putStrLn (wrapHtml "tucch1")  
+myHtml = html_ (body_ "Hello, World!")
