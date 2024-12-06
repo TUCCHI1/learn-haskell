@@ -32,6 +32,10 @@ el :: String -> String -> String
 el tag content =
     "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
 
-
 newtype Html = Html String
 newtype Structure = Structure String
+
+getStructureString :: Structure -> String
+getStructureString struct =
+    case struct of
+        Structure str -> str
