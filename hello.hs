@@ -32,6 +32,9 @@ el :: String -> String -> String
 el tag content =
     "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
 
+(.) :: (b -> c) -> (a -> b) -> a -> c
+(.) f g x = f (g x)
+
 newtype Html = Html String
 newtype Structure = Structure String
 
