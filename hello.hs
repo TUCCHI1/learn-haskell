@@ -1,8 +1,12 @@
-add :: Int -> Int -> Int
-add x y = x + y
-
-multiply x y = x * y
 main :: IO ()
 main = do
-    print (add 5 3)
-    print (multiply 5 3)
+    -- リストの各要素を２倍にする
+    let list = [1, 2, 3, 4, 5]
+    let doubled = map (*2) list
+    print doubled
+    -- リストの偶数要素のみを取り出す
+    let evens = filter even list
+    print evens
+    -- リストの合計を計算する
+    let sumList = foldr (+) 0 list
+    print sumList
