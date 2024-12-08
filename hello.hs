@@ -1,3 +1,9 @@
+myTuple :: (Int, String, Bool)
+myTuple = (42, "Haskell", True)
+
+firstElement = fst (42, "Haskell")
+secondElement = snd (42, "Haskell")
+
 main :: IO ()
 main = do
     -- リストの各要素を２倍にする
