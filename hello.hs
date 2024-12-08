@@ -1,8 +1,21 @@
-safeDivide :: Double -> Double -> Maybe Double
-safeDivide _ 0 = Nothing -- 0 で割る場合は結果を Nothing にする
-safeDivide x y = Just (x / y) -- 正常は割り算の結果を Just で包む
+getUserInfo :: String -> Maybe String
+getUserInfo "Alice" = Just "Alice's data"
+getUserInfo "Bob" = Just "Bob's data"
+getUserInfo _ = Nothing
+
+getEmail :: String -> Maybe String
+getEmail "Alice's data" = Just "alice@example.com"
+getEmail "Bob's data" = Just "bob@example.com"
+getEmail _ = Nothing
+
+-- バインド演算子を使って関数を繋げる
+result = getUserInfo "Alice" >>= getEmail
+
+-- 存在しないユーザーの場合
+result2 = getUserInfo "Charlie" >>= getEmail
+
 main :: IO ()
 main = do
-    print (safeDivide 10 2) -- Just 5.0
-    print (safeDivide 10 0) -- Nothing
+    print result
+    print result2
 
