@@ -1,5 +1,4 @@
-infiniteList :: [Int]
-infiniteList = [1..]
-main :: IO ()
-main = do
-    print (take 10 infiniteList)
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+
+main = print (applyTwice (+3) 10)
