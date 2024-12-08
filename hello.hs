@@ -1,8 +1,8 @@
-import Control.Monad (when)
 add :: Int -> Int -> Int
 add x y = x + y
 
-double x = x * 2
+multiply x y = x * y
+main :: IO ()
 main = do
-    print (add 5 10)
-    print (double 4)
+    print (add 5 3)
+    print (multiply 5 3)
