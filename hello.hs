@@ -1,4 +1,8 @@
-applyTwice :: (a -> a) -> a -> a
-applyTwice f x = f (f x)
+import Control.Monad (when)
+add :: Int -> Int -> Int
+add x y = x + y
 
-main = print(applyTwice (+3) 10)
+double x = x * 2
+main = do
+    print (add 5 10)
+    print (double 4)
