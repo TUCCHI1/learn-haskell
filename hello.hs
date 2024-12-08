@@ -8,5 +8,5 @@ main = do
     let evens = filter even list
     print evens
     -- リストの合計を計算する
-    let sumList = foldr (+) 0 list
+    let sumList = sum list
     print sumList
