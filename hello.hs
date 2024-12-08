@@ -1,21 +1,8 @@
-getUserInfo :: String -> Maybe String
-getUserInfo "Alice" = Just "Alice's data"
-getUserInfo "Bob" = Just "Bob's data"
-getUserInfo _ = Nothing
-
-getEmail :: String -> Maybe String
-getEmail "Alice's data" = Just "alice@example.com"
-getEmail "Bob's data" = Just "bob@example.com"
-getEmail _ = Nothing
-
--- バインド演算子を使って関数を繋げる
-result = getUserInfo "Alice" >>= getEmail
-
--- 存在しないユーザーの場合
-result2 = getUserInfo "Charlie" >>= getEmail
-
+safeRoot :: Double -> Either String Double
+safeRoot x
+    | x < 0 = Left "Negative input" -- 負の数の場合はエラーメッセージをLeftで返す
+    | otherwise = Right (sqrt x) -- それ以外の場合は平方根をRightで返す
 main :: IO ()
 main = do
-    print result
-    print result2
-
+    print (safeRoot 9) -- Right 3.0
+    print (safeRoot (-9)) -- Left "Negative input"
