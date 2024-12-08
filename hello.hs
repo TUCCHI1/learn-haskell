@@ -1,8 +1,12 @@
-safeRoot :: Double -> Either String Double
-safeRoot x
-    | x < 0 = Left "Negative input" -- 負の数の場合はエラーメッセージをLeftで返す
-    | otherwise = Right (sqrt x) -- それ以外の場合は平方根をRightで返す
+safeDiv :: Double -> Double -> Maybe Double
+safeDiv _ 0 = Nothing -- 0 である場合は Nothing を返す
+safeDiv x y = Just (x / y)
+
 main :: IO ()
 main = do
-    print (safeRoot 9) -- Right 3.0
-    print (safeRoot (-9)) -- Left "Negative input"
+    let a = 10
+    let b = 0
+    let result = safeDiv a b
+    case result of
+        Nothing -> putStrLn "Error: Division by zero"
+        Just value -> putStrLn $ "Result: " ++ show value
