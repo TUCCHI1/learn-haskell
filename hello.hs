@@ -1,9 +1,12 @@
-main :: IO ()
-main = do
-    let x = Just 5
-    let y = fmap (+3) x
-    print y
+data Color = Red | Blue | Green
+    deriving (Show)
 
-    let f = Just (+2)
-    let z = f <*> x
-    print z
+data Shape = Circle Color Double
+            | Rectangle Color Double Double
+    deriving (Show)
+
+main = do
+    let circle = Circle Red 5.0
+        rect = Rectangle Blue 3.0 4.0
+    print circle
+    print rect
