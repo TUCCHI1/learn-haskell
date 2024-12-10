@@ -1,3 +1,6 @@
+x :: Integer
+x = 5
+
 main :: IO ()
 main = do
     let x = Just 5
