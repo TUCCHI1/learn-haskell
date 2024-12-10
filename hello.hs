@@ -1,9 +1,9 @@
-data Recipe = Recipe String Int
-    deriving Show
-
 main :: IO ()
 main = do
-    let maybeRecipe = Just (Recipe "カレー")
-        maybeNumber = Nothing
-    
-    print (maybeRecipe <*> maybeNumber)
+    let x = Just 5
+    let y = fmap (+3) x
+    print y
+
+    let f = Just (+2)
+    let z = f <*> x
+    print z
