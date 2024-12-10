@@ -1,12 +1,11 @@
-x :: Integer
-x = 5
+data Color = Red | Green | Blue deriving Show
+
+describeColor Red = "The color is Red!"
+describeColor Green = "The color is Green!"
+describeColor Blue = "The color is Blue!"
 
 main :: IO ()
 main = do
-    let x = Just 5
-    let y = fmap (+3) x
-    print y
-
-    let f = Just (+2)
-    let z = f <*> x
-    print z
+    putStrLn $ describeColor Red
+    putStrLn $ describeColor Green
+    putStrLn $ describeColor Blue
